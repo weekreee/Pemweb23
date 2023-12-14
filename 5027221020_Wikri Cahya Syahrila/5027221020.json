@@ -1,0 +1,54 @@
+{
+    "price_tables": [
+        {
+            "id": "pwb1236",
+            "package_name": "Starter",
+            "price_per_month": "IDR 30,000",
+            "features": [
+                "5GB Storage",
+                "Email Support"
+            ]
+        },
+        {
+            "id": "pwb1237",
+            "package_name": "Business",
+            "price_per_month": "IDR 80,000",
+            "features": [
+                "20GB Storage",
+                "Priority Email Support",
+                "Advanced Analytics",
+                "SEO Tools"
+            ]
+        },
+        {
+            "id": "pwb1238",
+            "package_name": "Enterprise",
+            "price_per_month": "IDR 150,000",
+            "features": [
+                "100GB Storage",
+                "24/7 Phone Support",
+                "Custom Reports",
+                "API Access"
+            ]
+        },
+        {
+            "id": "pwb1239",
+            "package_name": "Free",
+            "price_per_month": "IDR 0",
+            "features": [
+                "2GB Storage",
+                "Community Support"
+            ]
+        },
+        {
+            "id": "pwb1240",
+            "package_name": "Pro",
+            "price_per_month": "IDR 60,000",
+            "features": [
+                "10GB Storage",
+                "Priority Email Support",
+                "Basic Analytics"
+            ]
+        }
+    ]
+}
