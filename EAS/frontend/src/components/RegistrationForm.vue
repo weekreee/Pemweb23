@@ -9,13 +9,6 @@
     <label for="sekolah">Asal Sekolah:</label>
     <input v-model="formData.sekolah" type="text" id="sekolah" required />
 
-    <label for="status">Status:</label>
-    <select v-model="formData.status" id="status" required>
-      <option value="Waiting">Waiting</option>
-      <option value="Rejected">Rejected</option>
-      <option value="Accepted">Accepted</option>
-    </select>
-
     <label for="tanggal">Tanggal Pendaftaran:</label>
     <input v-model="formData.tanggal" type="date" id="tanggal" required />
 
@@ -28,38 +21,43 @@ export default {
   data() {
     return {
       formData: {
-        name: "",
-        email: "",
-        sekolah: "",
-        status: "Waiting",
-        tanggal: ""
-      }
+        name: '',
+        email: '',
+        sekolah: '',
+        tanggal: '',
+      },
     };
   },
   methods: {
-    submitForm() {
-      // Kirim data ke backend menggunakan fetch
-      fetch("http://localhost:3000/api/account", {
-        method: "POST",
-        headers: {
-          "Content-Type": "application/json"
-        },
-        body: JSON.stringify(this.formData)
-      })
-        .then(response => response.json())
-        .then(data => {
-          console.log("Pendaftaran berhasil:", data);
-          // Tambahkan logika lainnya, misalnya redirect atau notifikasi sukses
-        })
-        .catch(error => {
-          console.error("Pendaftaran gagal:", error);
-          // Tambahkan logika lainnya, misalnya menampilkan pesan error
+    async submitForm() {
+      try {
+        const apiUrl = 'http://localhost:3000/api/account';
+
+        const response = await fetch(apiUrl, {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(this.formData),
         });
-    }
-  }
+
+        const responseData = await response.json();
+
+        console.log('Sukses gan', responseData);
+
+        this.formData = {
+          name: '',
+          email: '',
+          sekolah: '',
+          tanggal: '',
+        };
+      } catch (error) {
+        console.error('yah gagal', error);
+      }
+    },
+  },
 };
-</script>
-<style scoped>
+</script><style scoped>
 .registration-form {
   max-width: 400px;
   margin: auto;

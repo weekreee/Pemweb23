@@ -1,16 +1,19 @@
 import express from 'express'
 import payload from 'payload'
+const cors = require('cors');
 
 require('dotenv').config()
 const app = express()
-const cors = require('cors');
-
-app.use(cors());
 
 // Redirect root to Admin panel
 app.get('/', (_, res) => {
   res.redirect('/admin')
 })
+
+app.use(cors({
+  origin: 'http://localhost:3000',
+  credentials: true,
+}));
 
 const start = async () => {
   // Initialize Payload
@@ -22,9 +25,7 @@ const start = async () => {
     },
   })
 
-  // Add your own express routes here
-
-  app.listen(3000)
+  app.listen(3100)
 }
 
 start()
